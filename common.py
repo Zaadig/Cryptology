@@ -44,18 +44,18 @@ def inverse_modulaire(N, a):
 # calcule le modulo apres chaque multiplication
 def expo_modulaire(e, b, n):
     result = 1
-    b = b % n  # Réduit la base modulo n
-    operations = 0  # Compteur d'opérations
+    b = b % n  
+    operations = 0  
 
     while e > 0:
         if e % 2 == 1:
             result = (result * b) % n
-            operations += 1  # Compte le produit modulo n
+            operations += 1  
         e = e // 2
         b = (b * b) % n
-        operations += 2  # Compte la multiplication et le modulo
+        operations += 2  
 
-    print("Nombre d'opérations '×' effectuées:", operations)
+    # print("Nombre d'opérations '×' effectuées:", operations)
     return result
 
 
@@ -70,21 +70,21 @@ def expo_modulaire(e, b, n):
 # O(log(e)) operations
 def expo_modulaire_fast(e,b,n):
     result = 1
-    b = b % n  # Réduit la base modulo n
-    operations = 0  # Compteur d'opérations
+    b = b % n  
+    operations = 0  
 
-    bin_e = bin(e)[2:]  # Représentation binaire de l'exposant
-    bin_e = bin_e[::-1]  # Inverse la représentation binaire
+    bin_e = bin(e)[2:]  
+    bin_e = bin_e[::-1]  
 
-    # Effectue les élévations au carré successives
+
     for i in range(len(bin_e)):
         if bin_e[i] == '1':
             result = (result * b) % n
-            operations += 1  # Compte le produit modulo n
+            operations += 1  
         b = (b * b) % n
-        operations += 2  # Compte la multiplication et le modulo
+        operations += 2  
 
-    print("Nombre d'opérations '×' effectuées:", operations)
+    # print("Nombre d'opérations '×' effectuées:", operations)
     return result
 
 ####################
