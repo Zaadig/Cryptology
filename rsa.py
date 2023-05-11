@@ -56,7 +56,6 @@ def RSAcipher(e, N, m):
 # N modulo
 # c cipher sous forme de nombre
 # output: m message sous forme de texte
-
 def RSAdecipher(d, N, c):
     m_int = dec_rsa(c, d, N)
     return int_to_str(m_int)
