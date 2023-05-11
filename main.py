@@ -6,6 +6,7 @@ from common import *
 from rsa import *
 from elgamal import *
 from attacks import *
+from rsaTest import *
 
 def main():    
     # consider changing it to test stability
@@ -20,15 +21,11 @@ def main():
     ####################
     # Q12
     ####################
-    m = "ceci est le message de la question"
-
-    n = gen_rsa(512)
-
-    e, d, N = gen_rsa(512)
-    m = 123456789
-    c = enc_rsa(m, e, N)
-
-    print(c)
+    test_gen_rsa()
+    test_enc_rsa()
+    test_dec_rsa()
+    test_RSAcipher()
+    test_RSAdecipher()
 
 
 
