@@ -9,12 +9,20 @@ from math import sqrt
 
 # retourne le pgcd de deux entiers naturels
 def pgcd(a,b):
-    return 0
+    while b != 0:
+        a, b = b, a % b
+    return a
 
 # algo euclide etendu
 # retourne d,u,v avec pgcd(a,b)=d=ua+vb
 def euclide_ext(a,b):
-    return 0
+    if b == 0:
+        return a, 1, 0
+
+    d, u_prev, v_prev = euclide_ext(b, a % b)
+    u = v_prev
+    v = u_prev - (a // b) * v_prev
+    return d, u, v
     
 ####################
 # Q2
@@ -22,7 +30,11 @@ def euclide_ext(a,b):
 
 # retourne un entier b dans [1,N-1] avec ab=1 modulo N
 def inverse_modulaire(N,a):
-    return 0
+    d, u, v = euclide_ext(N, a)
+    if d == 1:
+        return u % N
+    else:
+        return None
 
 ####################
 # Q3
@@ -30,8 +42,23 @@ def inverse_modulaire(N,a):
 
 # retourne (b**e) % n
 # calcule le modulo apres chaque multiplication
-def expo_modulaire(e,b,n):
-    return 0
+def expo_modulaire(e, b, n):
+    result = 1
+    b = b % n  # Réduit la base modulo n
+    operations = 0  # Compteur d'opérations
+
+    while e > 0:
+        if e % 2 == 1:
+            result = (result * b) % n
+            operations += 1  # Compte le produit modulo n
+        e = e // 2
+        b = (b * b) % n
+        operations += 2  # Compte la multiplication et le modulo
+
+    print("Nombre d'opérations '×' effectuées:", operations)
+    return result
+
+
 
 ####################
 # Q4
@@ -41,14 +68,25 @@ def expo_modulaire(e,b,n):
 # calcule le modulo apres chaque multiplication
 # O(log(e)) operations
 def expo_modulaire_fast(e,b,n):
-    # help:
-    
-    # representer e en binaire
-    #bin_e = bin(e)[2:]
-    
-    # utile pour iterer sur chaque element de e 
-    #for x in range(len(bin_e)):
-    #   int(bin_e[x])
+
+    result = 1
+    b = b % n  # Réduit la base modulo n
+    operations = 0  # Compteur d'opérations
+
+    bin_e = bin(e)[2:]  # Représentation binaire de l'exposant
+    bin_e = bin_e[::-1]  # Inverse la représentation binaire
+
+    # Effectue les élévations au carré successives
+    for i in range(len(bin_e)):
+        if bin_e[i] == '1':
+            result = (result * b) % n
+            operations += 1  # Compte le produit modulo n
+        b = (b * b) % n
+        operations += 2  # Compte la multiplication et le modulo
+
+    print("Nombre d'opérations '×' effectuées:", operations)
+    return result
+
     
     return 0
 
