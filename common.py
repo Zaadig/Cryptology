@@ -29,12 +29,12 @@ def euclide_ext(a,b):
 ####################
 
 # retourne un entier b dans [1,N-1] avec ab=1 modulo N
-def inverse_modulaire(N,a):
-    d, u, v = euclide_ext(N, a)
-    if d == 1:
-        return u % N
+def inverse_modulaire(N, a):
+    g, x, _ = euclide_ext(a, N)
+    if g == 1:
+        return x % N
     else:
-        return None
+        return None  # modular inverse does not exist
 
 ####################
 # Q3
