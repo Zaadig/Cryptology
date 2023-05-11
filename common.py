@@ -91,6 +91,18 @@ def expo_modulaire_fast(e,b,n):
 # Q5
 ####################
 
+
+
+# La boucle while itère tant que la condition (p * p <= n) est vérifiée. Cela nécessite approximativement √n itérations. Donc, la complexité de cette boucle est O(√n).
+
+# La boucle for itère sur les nombres de 2 à n. Cela nécessite n-2 itérations. Donc, la complexité de cette boucle est O(n).
+
+# Les boucles imbriquées à l'intérieur de la boucle while et de la boucle for ont une complexité négligeable par rapport aux boucles principales et peuvent être considérées comme constantes.
+
+# La complexité en temps peut être simplifié en O(n). 
+
+# La complexité en espace de la fonction crible_eras est O(n) en raison de la taille de la liste primes.
+
 # retourne la liste des nombres premiers <= n
 # methode du crible d Eratosthene
 def crible_eras(n):
