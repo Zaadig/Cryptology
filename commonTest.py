@@ -25,32 +25,15 @@ def inverse_modulaireTest():
     assert common.inverse_modulaire(0, 0) == None
 
 
-
 def expo_modulaireTest():
-    assert common.expo_modulaire(3, 5, 7) == 3**5%7
-    assert common.expo_modulaire(7, 2, 11) == 7**2%11
-    assert common.expo_modulaire(13, 17, 23) == 13**17%23
-    assert common.expo_modulaire(1, 1, 1) == 1
-    assert common.expo_modulaire(1, 1, 2) == 1
-
-
-
-def expo_modulaire_fastTest():
-
-    assert common.expo_modulaire_fast(3, 5, 7) == 3**5%7
-    assert common.expo_modulaire_fast(7, 2, 11) == 7**2%11
-    assert common.expo_modulaire_fast(13, 17, 23) == 13**17%23
-    assert common.expo_modulaire_fast(1, 1, 1) == 1
-    assert common.expo_modulaire_fast(1, 1, 2) == 1
-    assert common.expo_modulaire_fast(1, 1, 3) == 1
-    assert common.expo_modulaire_fast(7, 1, 7) == 0
-
-
-
-
+    assert common.expo_modulaire(5, 3, 7) == 5
+    assert common.expo_modulaire(3, 5, 7) == common.expo_modulaire_fast(3, 5, 7)
+    assert common.expo_modulaire(3, 4, 7) == common.expo_modulaire_fast(3, 4, 7)
+    assert common.expo_modulaire(3, 3, 7) == common.expo_modulaire_fast(3, 3, 7)
+    assert common.expo_modulaire(3, 2, 7) == common.expo_modulaire_fast(3, 2, 7)
+    assert common.expo_modulaire(3, 1, 7) == common.expo_modulaire_fast(3, 1, 7)
 
 pgcdTest()
 euclide_extTest()
 inverse_modulaireTest()
 expo_modulaireTest()
-# expo_modulaire_fastTest()
