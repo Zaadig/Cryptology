@@ -5,7 +5,7 @@ from math import sqrt
 
 ####################
 # Q1
-####################
+###################
 
 # retourne le pgcd de deux entiers naturels
 def pgcd(a,b):
