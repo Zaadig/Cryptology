@@ -22,6 +22,16 @@ def main():
     ####################
     m = "ceci est le message de la question"
 
+    n = gen_rsa(512)
+
+    e, d, N = gen_rsa(512)
+    m = 123456789
+    c = enc_rsa(m, e, N)
+
+    print(c)
+
+
+
     
     ####################
     # Q13
