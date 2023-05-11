@@ -24,7 +24,6 @@ def test_dec_rsa():
     m = 123456789
     c = rsa.enc_rsa(m, e, N)
     m2 = rsa.dec_rsa(c, d, N)
-    print(c, m, m2)
     assert m == m2
 
     

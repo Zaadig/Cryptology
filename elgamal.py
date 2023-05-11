@@ -69,7 +69,7 @@ def enc_elgamal(m, secret, p):
 
     bin_m = bin(str_to_int(m))[2:]
 
-    # Chiffrer chaque bit du message avec le secret partagé
+
     cipher = []
     for bit in bin_m:
         if bit == '0':
@@ -105,7 +105,6 @@ def elgamalsignature(g, p, sk, m):
 
     r = expo_modulaire_fast(k, g, p)
 
-    # Calculer s = (sk - r * sk) * k^-1 mod (p-1)
     k_inv = inverse_modulaire(k, p-1)
     s = ((str_to_int(sk) - r * str_to_int(m)) * k_inv) % (p-1)
 
