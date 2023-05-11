@@ -19,7 +19,7 @@ def euclide_extTest():
 
 def inverse_modulaireTest():
 
-    assert common.inverse_modulaire(12, 35) == 3
+    assert common.inverse_modulaire(35, 12) == 3
     assert common.inverse_modulaire(12, 0) == None
     assert common.inverse_modulaire(0, 12) == None
     assert common.inverse_modulaire(0, 0) == None
